@@ -18,6 +18,7 @@
   "homepage": "https://github.com/tcarisland/site#readme",
   "dependencies": {
     "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
     "gulp-uglify": "^3.0.1"
   }
 }
