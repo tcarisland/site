@@ -14,15 +14,17 @@ gulp.task('minify-js', function() {
 	.pipe(gulp.dest('dist'));
 });
 
+var depslist = ['node_modules/jquery/dist/jquery.min.js', 'node_modules/svg.js/dist/svg.min.js'];
+
 gulp.task('concat-deps-js', function() {
-    return gulp.src(['node_modules/svg.js/dist/svg.min.js'])
+    return gulp.src(depslist)
 	  .pipe(concat('deps.js'))
 	  .pipe(uglify())
 	  .pipe(gulp.dest('dist'));
 });
 
 gulp.task('deps-to-src', function() {
-    return gulp.src(['node_modules/svg.js/dist/svg.min.js'])
+    return gulp.src([depslist])
 	.pipe(concat('deps.js'))
 	.pipe(gulp.dest('src/js'));
 });

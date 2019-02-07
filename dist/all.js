@@ -1,1 +1,1 @@
-function hello(){console.log("Hello, World!")}
+$(document).ready(function(){alert("hello")});
