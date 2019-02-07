@@ -8,10 +8,23 @@ gulp.task('copy-html', function() {
 });
 
 gulp.task('minify-js', function() {
-    return gulp.src(['src/js/*.js'])
+    return gulp.src(['src/js/*.js', '!src/js/deps.js'])
 	.pipe(concat('all.js'))
 	.pipe(uglify())
 	.pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', gulp.series(gulp.parallel('copy-html', 'minify-js')));
+gulp.task('concat-deps-js', function() {
+    return gulp.src(['node_modules/svg.js/dist/svg.min.js'])
+	  .pipe(concat('deps.js'))
+	  .pipe(uglify())
+	  .pipe(gulp.dest('dist'));
+});
+
+gulp.task('deps-to-src', function() {
+    return gulp.src(['node_modules/svg.js/dist/svg.min.js'])
+	.pipe(concat('deps.js'))
+	.pipe(gulp.dest('src/js'));
+});
+
+gulp.task('default', gulp.series(gulp.parallel('copy-html', 'concat-deps-js', 'minify-js')));

@@ -19,6 +19,10 @@
   "dependencies": {
     "gulp": "^4.0.0",
     "gulp-concat": "^2.6.1",
-    "gulp-uglify": "^3.0.1"
+    "gulp-npm-dist": "^1.0.2",
+    "gulp-uglify": "^3.0.1",
+    "jquery": "^3.3.1",
+    "svg.js": "^2.7.1",
+    "svgdom": "0.0.18"
   }
 }
